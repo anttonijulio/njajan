@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "525953366180",
+    "project_id": "njajan-e5149",
+    "storage_bucket": "njajan-e5149.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525953366180:android:55b951a94567b4c4640e31",
+        "android_client_info": {
+          "package_name": "com.example.njajan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525953366180-ubsng48588bfie8bba74aq1r8786278n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn4L0ChN6X9uFB8jOzKDXs3eO5nRYTdUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525953366180-ubsng48588bfie8bba74aq1r8786278n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525953366180:android:63b918fb7d3d2816640e31",
+        "android_client_info": {
+          "package_name": "com.example.njajan_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525953366180-ubsng48588bfie8bba74aq1r8786278n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn4L0ChN6X9uFB8jOzKDXs3eO5nRYTdUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525953366180-ubsng48588bfie8bba74aq1r8786278n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
