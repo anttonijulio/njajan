@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/components/app_bbar.dart';
+
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
 
@@ -10,8 +12,12 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('profil'),
+    return const Scaffold(
+      appBar: AppBBar(
+        appBBarTitleType: AppBBarTitleType.text,
+        title: 'Orderan Kamu',
+        showBackArrow: false,
+      ),
     );
   }
 }
