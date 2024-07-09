@@ -4,7 +4,7 @@ import '../model/shop_model.dart';
 
 abstract interface class ShopRemoteDatasource {
   // get toko
-  Future<ShopModel> getToko({required String id});
+  Future<ShopModel> getShopById({required String id});
 }
 
 class ShopRemoteDatasourceImpl implements ShopRemoteDatasource {
@@ -13,7 +13,7 @@ class ShopRemoteDatasourceImpl implements ShopRemoteDatasource {
   ShopRemoteDatasourceImpl({required this.firestore});
 
   @override
-  Future<ShopModel> getToko({required String id}) async {
+  Future<ShopModel> getShopById({required String id}) async {
     try {
       final doc = await firestore.collection('shop').doc(id).get();
 

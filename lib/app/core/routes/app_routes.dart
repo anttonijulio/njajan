@@ -9,6 +9,7 @@ import '../../features/auth/presentation/page/splash_page.dart';
 import '../../features/main_page.dart';
 import '../../features/payment/presentation/page/payment_method_page.dart';
 import '../../features/profile/presentation/page/update_profile_page.dart';
+import '../../features/shop/presentation/page/shop_page.dart';
 import '../utils/colors/colors.dart';
 import '../utils/helper/gap.dart';
 import '../utils/strings/asset_strings.dart';
@@ -24,6 +25,7 @@ class AppRoute {
   static const main = _Path.MAIN;
   static const updateProfile = _Path.UPDATE_PROFILE;
   static const paymentMethod = _Path.PAYMENT_METHOD;
+  static const shop = _Path.SHOP;
 
   // generate route
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -41,6 +43,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => UpdateProfilePage(args: args));
       case paymentMethod:
         return MaterialPageRoute(builder: (_) => const PaymentMethodPage());
+      case shop:
+        return MaterialPageRoute(builder: (_) => const ShopPage());
       default:
         return MaterialPageRoute(
           builder: (_) {
@@ -83,6 +87,7 @@ class _Path {
   static const MAIN = '/main';
   static const UPDATE_PROFILE = 'update-profile';
   static const PAYMENT_METHOD = '/payment-method';
+  static const SHOP = '/shop';
 }
 
 class UpdateProfileArgs extends Equatable {

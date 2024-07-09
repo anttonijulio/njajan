@@ -18,7 +18,7 @@ class ShopRepositoryImpl implements ShopRepository {
   });
 
   @override
-  Future<Either<Failure, Shop>> getToko({
+  Future<Either<Failure, Shop>> getTokoById({
     required String id,
   }) async {
     if (!await connection.hasConnection) {
@@ -26,7 +26,7 @@ class ShopRepositoryImpl implements ShopRepository {
     }
 
     try {
-      final toko = await shopRemote.getToko(id: id);
+      final toko = await shopRemote.getShopById(id: id);
 
       return right(toko);
     } on FirebaseException catch (e) {

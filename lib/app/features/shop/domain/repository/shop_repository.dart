@@ -5,5 +5,5 @@ import '../entity/shop.dart';
 
 abstract interface class ShopRepository {
   // get toko
-  Future<Either<Failure, Shop>> getToko({required String id});
+  Future<Either<Failure, Shop>> getTokoById({required String id});
 }

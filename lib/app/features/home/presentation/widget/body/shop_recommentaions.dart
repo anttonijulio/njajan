@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/routes/app_routes.dart';
 import '../../../../../core/utils/components/shop_card.dart';
 
 class ShopRecommendations extends StatelessWidget {
@@ -38,7 +39,12 @@ class ShopRecommendations extends StatelessWidget {
               width: 12,
             ),
             itemBuilder: (context, index) {
-              return const ShopCard();
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoute.shop);
+                },
+                child: const ShopCard(),
+              );
             },
           ),
         ),

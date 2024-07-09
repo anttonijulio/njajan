@@ -8,7 +8,9 @@ import 'core/routes/app_routes.dart';
 import 'core/utils/locale/app_locale.dart';
 import 'core/utils/theme/app_theme.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
+import 'features/product/presentation/bloc/product_bloc.dart';
 import 'features/profile/presentation/bloc/profile_bloc.dart';
+import 'features/shop/presentation/bloc/shop_bloc.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -19,6 +21,8 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => locator<AuthBloc>()),
         BlocProvider(create: (_) => locator<ProfileBloc>()),
+        BlocProvider(create: (_) => locator<ShopBloc>()),
+        BlocProvider(create: (_) => locator<ProductBloc>()),
       ],
       child: RefreshConfiguration(
         headerBuilder: () => const ClassicHeader(

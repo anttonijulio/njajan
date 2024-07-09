@@ -6,6 +6,7 @@ import '../core/utils/colors/colors.dart';
 import 'favorite/presentation/page/favorite_page.dart';
 import 'home/presentation/page/home_page.dart';
 import 'order/presentation/page/order_page.dart';
+import 'product/presentation/bloc/product_bloc.dart';
 import 'profile/presentation/bloc/profile_bloc.dart';
 import 'profile/presentation/page/profile_page.dart';
 
@@ -31,6 +32,7 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     currentPage = selectedPage;
     context.read<ProfileBloc>().add(GetProfileEvent());
+    context.read<ProductBloc>().add(GetAllProductEvent());
     super.initState();
   }
 

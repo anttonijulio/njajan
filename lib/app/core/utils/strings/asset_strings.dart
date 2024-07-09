@@ -13,8 +13,9 @@ class AssetStrings {
   static const defaultProfil = 'assets/profil/default-person.png';
   static const errorProfil = 'assets/profil/error-profile.png';
 
-  // restaurant
+  // shop
   static const restaurant = 'assets/shop/restaurant.jpg';
+  static const profileShopBg = 'assets/shop/profile-bg.jpg';
 
   // favorite
   static const emtyFavorite = 'assets/favorite/empty.png';

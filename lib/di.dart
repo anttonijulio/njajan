@@ -6,12 +6,22 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import 'app/features/product/data/datasource/product_remote_datasource.dart';
+import 'app/features/product/data/repository_impl/product_repository_impl.dart';
+import 'app/features/product/domain/repository/product_repository.dart';
+import 'app/features/product/domain/usecase/get_all_product.dart';
+import 'app/features/product/presentation/bloc/product_bloc.dart';
 import 'app/features/profile/data/datasource/profile_remote_datasource.dart';
 import 'app/features/profile/data/repository_impl/profile_repository_impl.dart';
 import 'app/features/profile/domain/repository/profile_repository.dart';
 import 'app/features/profile/domain/usecase/get_profile.dart';
 import 'app/features/profile/domain/usecase/update_profile.dart';
 import 'app/features/profile/presentation/bloc/profile_bloc.dart';
+import 'app/features/shop/data/datasource/shop_remote_datasource.dart';
+import 'app/features/shop/data/repository_impl/shop_repository_impl.dart';
+import 'app/features/shop/domain/repository/shop_repository.dart';
+import 'app/features/shop/domain/usecase/get_shop_by_id.dart';
+import 'app/features/shop/presentation/bloc/shop_bloc.dart';
 import 'bloc_observer.dart';
 import 'firebase_options.dart';
 import 'app/core/device/device_config.dart';
@@ -39,6 +49,8 @@ Future initDependencies() async {
   packageDependencies();
   authDependencies();
   profileDependencies();
+  shopDependencies();
+  productDependencies();
 
   await locator.allReady();
 }
@@ -119,6 +131,64 @@ void profileDependencies() {
   locator.registerLazySingleton<ProfileRemoteDatasource>(
     () => ProfileRemoteDatasourceImpl(
       auth: locator<FirebaseAuth>(),
+      firestore: locator<FirebaseFirestore>(),
+    ),
+  );
+}
+
+//* shop
+void shopDependencies() {
+  // bloc
+  locator.registerFactory(
+    () => ShopBloc(
+      getToko: locator<GetShopById>(),
+    ),
+  );
+  // usecase
+  locator.registerLazySingleton(
+    () => GetShopById(
+      shopRepository: locator<ShopRepository>(),
+    ),
+  );
+  // repository
+  locator.registerLazySingleton<ShopRepository>(
+    () => ShopRepositoryImpl(
+      shopRemote: locator<ShopRemoteDatasource>(),
+      connection: locator<InternetConnectionChecker>(),
+    ),
+  );
+  // datasource
+  locator.registerLazySingleton<ShopRemoteDatasource>(
+    () => ShopRemoteDatasourceImpl(
+      firestore: locator<FirebaseFirestore>(),
+    ),
+  );
+}
+
+//* product
+void productDependencies() {
+  // bloc
+  locator.registerFactory(
+    () => ProductBloc(
+      getAllProduct: locator<GetAllProduct>(),
+    ),
+  );
+  // usecase
+  locator.registerLazySingleton(
+    () => GetAllProduct(
+      productRepository: locator<ProductRepository>(),
+    ),
+  );
+  // repository
+  locator.registerLazySingleton<ProductRepository>(
+    () => ProductRepositoryImpl(
+      remoteProduct: locator<ProductRemoteDatasource>(),
+      connection: locator<InternetConnectionChecker>(),
+    ),
+  );
+  // datasource
+  locator.registerLazySingleton<ProductRemoteDatasource>(
+    () => ProductRemoteDatasourceImpl(
       firestore: locator<FirebaseFirestore>(),
     ),
   );
